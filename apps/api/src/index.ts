@@ -13,10 +13,10 @@ dotenv.config();
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
-  cors: {
-    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
-    methods: ["GET", "POST"],
-  },
+ cors: {
+  origin: "*", // allow all origins
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], // allow all methods
+}
 });
 const PORT = parseInt(process.env.PORT || "3001", 10);
 const HOST = process.env.HOST || "0.0.0.0";
